@@ -1,11 +1,21 @@
 package AdvancedJavaOOP._8;
 
 public class Bird extends Animal {
+    private String birdBreed;
     private double wingSpan;
 
-    public Bird(double birdSpan, double height, double weight) {
+    public Bird(String birdBreed , double wingSpan, double height, double weight) {
         super(height, weight);
-        this.wingSpan = birdSpan;
+        this.birdBreed= birdBreed;
+        this.wingSpan = wingSpan;
+    }
+
+    public String getBirdBreed() {
+        return birdBreed;
+    }
+
+    public void setBirdBreed(String birdBreed) {
+        this.birdBreed = birdBreed;
     }
 
     public double getWingSpan() {
@@ -16,13 +26,12 @@ public class Bird extends Animal {
         this.wingSpan = wingSpan;
     }
     public void printBird(){
-        System.out.println("WingSpan : "+ wingSpan+ " ; Bird height : "+height+ " ; Bird weight : "+weight);
+        System.out.println("BirdBreed : "+ getBirdBreed()+ " WingSpan : "+getWingSpan()+ " ; Bird height : "+getHeight()+ " ; Bird weight : "+getWeight());
+    }
+    public double flySpeedMetersPerSecond(){
+        double flySpeed= getWingSpan()*4;
+        return flySpeed;
     }
 
-    public static Object flySpeedMetersPerSecond(Bird bird) {
-        double result = bird.wingSpan * 4;
-        System.out.println("The bird is flying at this speed : " + result);
-        return result;
 
-    }
 }

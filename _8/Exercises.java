@@ -1,5 +1,6 @@
 package AdvancedJavaOOP._8;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Exercises {
@@ -23,8 +24,10 @@ public class Exercises {
      */
     private static void exercise1() {
         System.out.println("\nExercise 1: ");
-        Dog dog1 = new Dog("Shiba inu",35,12);
+        Dog dog1 = new Dog("Shiba inu",39.5,15);
+        Dog dog2 = new Dog("German Sheperd",60,39);
         dog1.printDog();
+        dog2.printDog();
 
         // Your code here
     }
@@ -42,11 +45,11 @@ public class Exercises {
      */
     private static void exercise2() {
         System.out.println("\nExercise 2: ");
-        Bird bird1 = new Bird(1.5,75,2.0);
-        Fish fish1= new Fish("Cernia Bruna",150,50);
+        Bird bird1=new Bird("Falco pellegrino",1200,45,0.4);
+        Fish fish1= new Fish("Cernia bruna",150,60);
         bird1.printBird();
         fish1.printFish();
-        // Your code here
+
     }
 
 
@@ -62,33 +65,38 @@ public class Exercises {
      */
     private static void exercise3() {
         System.out.println("\nExercise 3: ");
-        Dog dog1 = new Dog("Shiba inu",35,12);
-        Bird bird1 = new Bird(150,75,2.0);
-        Fish fish1= new Fish("Cernia Bruna",150,50);
-
-        //Dog.runSpeedMetersPerSecond(dog1);
-        //Bird.flySpeedMetersPerSecond(bird1);
-        //Fish.swimSpeedMetersPerSecond(fish1);
-        ArrayList<Object> animals = new ArrayList<Object>();
-        animals.add(dog1);
-        animals.add(bird1);
-        animals.add(fish1);
+        Dog dog1 = new Dog("Shiba inu",39.5,15);
+        Bird bird1=new Bird("Falco pellegrino",1200,45,0.4);
+        Fish fish1= new Fish("Cernia bruna",150,60);
+        System.out.println("The dog "+ dog1.getBreed() +" is running at this speed : " + dog1.runSpeedMetersPerSecond());
+        System.out.println("The fish "+ fish1.getSpecies()+" is swimming at this speed : "+fish1.swimSpeedMetersPerSecond());
+        System.out.println("The bird "+ bird1.getBirdBreed()+" is flying at this speed : "+bird1.flySpeedMetersPerSecond());
+        ArrayList<Object> animalRace = new ArrayList<>();
+        animalRace.add(dog1);
+        animalRace.add(bird1);
+        animalRace.add(fish1);
         double theFaster= Double.MIN_VALUE;
-        double dogSpeed= (double) Dog.runSpeedMetersPerSecond(dog1);
-        double birdSpeed= (double) Bird.flySpeedMetersPerSecond(bird1);
-        double fishSpeed= (double) Fish.swimSpeedMetersPerSecond(fish1);
+        String theWinner= " ";
+        for (Object animal : animalRace){
+            if (theFaster< dog1.runSpeedMetersPerSecond()){
+                theFaster= dog1.runSpeedMetersPerSecond();
+                theWinner= dog1.getBreed();
 
-        for (int i=0;i< animals.size();i++){
-            if( theFaster<dogSpeed){
-                theFaster=dogSpeed;
             }
-            if(theFaster<birdSpeed){
-                theFaster=birdSpeed;
+            if(theFaster< bird1.flySpeedMetersPerSecond()){
+                theFaster= bird1.flySpeedMetersPerSecond();
+                theWinner=bird1.getBirdBreed();
+
             }
-            if(theFaster<fishSpeed){
-                theFaster=fishSpeed;
+            if(theFaster<fish1.swimSpeedMetersPerSecond()){
+                theFaster=fish1.swimSpeedMetersPerSecond();
+                theWinner= fish1.getSpecies();
+
             }
+
         }
-        System.out.println("The faster animal reach the speed : "+theFaster);
+
+        System.out.println("The winner of the race is : "+theWinner+ " , reaching this speed in MetersPerSecond : "+theFaster);
+
     }
 }

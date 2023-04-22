@@ -13,13 +13,14 @@ public class Fish extends Animal {
         this.species=species;
     }
     public void printFish(){
-        System.out.println("Fish specie : "+species+ " ; Fish height : "+height+ " ; Fish weight : "+weight);
+        System.out.println("Fish specie : "+getSpecies()+ " ; Fish height : "+getHeight()+ " ; Fish weight : "+getWeight());
     }
-    public static Object swimSpeedMetersPerSecond(Fish fish){
-        double result = Fish.weight * 2;
-        System.out.println("The fish is swimming at this speed : " +result);
-        return result;
+    public double swimSpeedMetersPerSecond() {
+        double swimSpeed = getWeight()*2;
+        return swimSpeed;
+
+    }
 
 
     }
-}
+

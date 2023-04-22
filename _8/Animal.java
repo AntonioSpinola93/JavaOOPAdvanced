@@ -1,8 +1,8 @@
 package AdvancedJavaOOP._8;
 
 class Animal {
-    public static double height;
-    public static double weight;
+    private double height;
+    private double weight;
 
     public Animal(double height, double weight) {
         this.height = height;
